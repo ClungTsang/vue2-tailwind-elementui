@@ -1,6 +1,4 @@
 import axios from 'axios'
-// import Cookies from 'js-cookie'
-// import qs from 'qs'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,

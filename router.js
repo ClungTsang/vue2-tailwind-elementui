@@ -3,6 +3,7 @@ import Vue from 'vue';//加载全局组件时,都需要引入Vue
 import Router from 'vue-router';//引入vue-router
 //引入在路由中需要用到的组件
 import Home from '@/pages/index/index';
+import Example from '@/pages/example/index';
 
 //第二步:加载Router
 Vue.use(Router);//加载全局组件Router
@@ -20,6 +21,11 @@ export default new Router({
       path: '/index',
       name: 'index',
       component: Home,
+    },
+    {
+      path: '/example',
+      name: 'example',
+      component: Example,
     }
   ]
 })

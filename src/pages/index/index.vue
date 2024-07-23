@@ -22,7 +22,7 @@ export default {
   methods: {
     showLogin() {
       this.loginVisible = true
-    }
+    },
   },
 }
 </script>
