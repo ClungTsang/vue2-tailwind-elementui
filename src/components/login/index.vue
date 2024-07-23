@@ -43,8 +43,6 @@ export default {
   computed: {
     visible: {
       get() {
-        // console.log('process.env.VUE_APP_BASE_URL :>> ', process.env.VUE_APP_BASE_URL);
-        // console.log('process.env.VUE_APP_BASE_API :>> ', process.env.VUE_APP_BASE_API);
         return this.loginVisible
       },
       set(val) {

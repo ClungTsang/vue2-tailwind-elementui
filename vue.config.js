@@ -5,7 +5,7 @@ module.exports = defineConfig({
     //配置跨域代理http,https
     proxy: {
       "/dev-api": {
-        target: process.env.BASE_URL,
+        target: process.env.VUE_APP_BASE_URL,
         changeOrigin: true,
         pathRewrite: {
           '^/dev-api': ""
