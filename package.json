@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve ",
     "serve:dev": "vue-cli-service serve --mode development",
     "serve:prod": "vue-cli-service serve --mode production",
-    "build": "vue-cli-service build --mode development" ,
-    "build:prod": "vue-cli-service build --mode production" ,
+    "build": "vue-cli-service build --mode development",
+    "build:prod": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "autoprefixer": "^9.8.8",
     "axios": "^1.7.2",
     "core-js": "^3.8.3",
+    "dayjs": "^1.11.12",
     "element-ui": "^2.15.14",
     "js-cookie": "^3.0.5",
     "postcss": "^7.0.39",

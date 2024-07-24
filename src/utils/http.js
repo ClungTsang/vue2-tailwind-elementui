@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Cookies from 'js-cookie'
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -10,11 +10,10 @@ const service = axios.create({
 const whiteList = ['/validateLogon']
 // 設置 request 攔截器
 service.interceptors.request.use((config) => {
-  console.log('config.url :>> ', config.url);
-  if(!whiteList.includes(config.url)){
-    // const token = JSON.parse(Cookies.get('userInfo').token)
-    // token本身是會過期的，需要返回狀態查詢是不是過期
-    // token && (config.headers.Authorization = token)
+  console.log('request url :>> ', config.url);
+  if (!whiteList.includes(config.url)) {
+    const verificationRequestHeader = Cookies.get('verificationRequestHeader')
+    verificationRequestHeader && (config.headers.verificationRequestHeader = verificationRequestHeader)
   }
   return config
 })

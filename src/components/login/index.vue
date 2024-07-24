@@ -2,8 +2,8 @@
   <el-dialog title="登录" :visible.sync="visible" width="30%" @close="closeDialog">
     <span>
       <el-form :model="form" ref="form" label-width="80px" :inline="false" size="normal">
-        <el-form-item required label="用户名" prop="account_number">
-          <el-input v-model="form.account_number"></el-input>
+        <el-form-item required label="用户名" prop="number">
+          <el-input v-model="form.number"></el-input>
         </el-form-item>
         <el-form-item required label="密码" prop="password">
           <el-input type="password" v-model="form.password"></el-input>
@@ -18,6 +18,7 @@
 </template>
 <script>
 import { login } from "@/api/index.js";
+import Cookies from "js-cookie";
 export default {
   model: {
     prop: "loginVisible",
@@ -29,10 +30,11 @@ export default {
       default: false
     }
   },
+  emits: ['loginSuccess'],
   data() {
     return {
       form: {
-        account_number: '',
+        number: '',
         password: ''
       }
     }
@@ -53,8 +55,10 @@ export default {
   methods: {
     async confirmLogin() {
       const data = await login(this.form)
-      console.log('data :>> ', data);
+      Cookies.set('verificationRequestHeader', data)
       this.$message.success('登录成功')
+      this.$emit('changeLoginVisible', false)
+      this.$emit('loginSuccess')
     },
     closeDialog() {
       this.$emit('changeLoginVisible', false)
