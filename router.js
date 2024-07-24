@@ -22,10 +22,5 @@ export default new Router({
       name: 'index',
       component: Home,
     },
-    {
-      path: '/example',
-      name: 'example',
-      component: Example,
-    }
   ]
 })
